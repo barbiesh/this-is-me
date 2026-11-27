@@ -1,0 +1,91 @@
+{
+  "slug": "barbie-shah",
+  "company": {
+    "name": "Barbie Shah",
+    "tagline": "TODO",
+    "description": "IT student (BIT Hons, Informatics College Pokhara, 2023-2025) with hands-on experience in software development and database management, looking to apply technical and organizational skills to project coordination and team management. Former UI/UX Designer Intern at Himalaya Expeditions.",
+    "phone": "9864656512",
+    "email": "barbie.shah003@gmail.com",
+    "address": "Fulbari, Pokhara-11",
+    "hours": "n/a (personal portfolio)",
+    "socials": {"linkedin": "https://www.linkedin.com/in/barbieshah", "github": "TODO", "instagram": "TODO"}
+  },
+  "audience": "Recruiters and hiring managers for junior project coordination / project management, IT and UI/UX roles; potential collaborators.",
+  "tone": "Natural, confident, warm and easy to read; personal rather than a formal biography; short engaging copy rewritten from the CV without changing facts. Client wants soft, feminine, modern, elegant, playful, editorial.",
+  "languages": ["en"],
+  "theme_hints": {
+    "logo_colors": [],
+    "existing_site_colors": [],
+    "requested_palette": ["baby pink (primary)", "blush pink", "soft rose", "warm ivory", "cream white", "subtle charcoal for contrast"],
+    "mood": "High-end fashion editorial meets creative professional portfolio; pink used thoughtfully, not childish; oversized serif + clean sans typography, generous whitespace, asymmetric layouts, smooth premium scroll animations (client suggests GSAP/ScrollTrigger)."
+  },
+  "pages": [
+    {
+      "slug": "/",
+      "title": "Home (single-page portfolio, anchored sections in this order)",
+      "must_show": [
+        "#home: name in oversized type, photo, short intro from CV profile, tagline (TODO, client to approve), scroll cue, nav to all sections",
+        "#about: personal intro built from CV profile (IT student, software development + database experience, moving toward project coordination/team management, communication and teamwork); personal interests TODO",
+        "#journey: timeline - BIT (Hons) Informatics College Pokhara 2023-2025; UI/UX Designer Intern, Himalaya Expeditions, Jan-Apr 2025; Alison Project Management - Foundation, Sep 2025; PMI Project Management Foundations (via LinkedIn Learning), Oct 2025",
+        "#skills: technical groups (PM tools, programming, web dev, databases, tools, OS) and soft skills, no progress bars or percentages",
+        "#projects: Pumpkin Outfit e-commerce (Laravel), complaint-response ML classifier (Random Forest, 64.4% accuracy), MySQL relational database design; tech per project; links TODO (no links in CV, do not render dead buttons)",
+        "#experience: UI/UX Designer Intern at Himalaya Expeditions (Jan 2025 - April 2025) with its two responsibilities; certifications",
+        "#beyond-work: interests/hobbies/creativity - ALL TODO (not in CV); show tasteful editable placeholder or hide until client supplies content",
+        "#contact: invitation to connect, mailto email, tel phone, LinkedIn link, location Pokhara"
+      ]
+    }
+  ],
+  "content": {
+    "services": [],
+    "profile": "IT student with hands-on experience in software development and database management. Eager to apply technical and organizational skills to project coordination and team management, focusing on efficient execution and practical problem-solving. Possess effective communication and interpersonal skills, with the ability to work both independently and collaboratively in team settings.",
+    "education": [
+      {"institution": "Informatics College Pokhara", "degree": "Bachelor in Information Technology (Hons)", "years": "2023-2025"}
+    ],
+    "projects": [
+      {"title": "E-commerce Website - Pumpkin Outfit", "body": "Laravel-based e-commerce website with role-based access and product management features.", "tech": ["Laravel"], "link": "TODO"},
+      {"title": "Machine Learning Model", "body": "Model classifying company responses to consumer complaints, achieving 64.4% accuracy using Random Forest.", "tech": ["Random Forest"], "link": "TODO"},
+      {"title": "Database Design", "body": "Designed and implemented a relational database using MySQL, ensuring data integrity and efficient queries.", "tech": ["MySQL"], "link": "TODO"}
+    ],
+    "experience": [
+      {"role": "UI/UX Designer Intern", "company": "Himalaya Expeditions", "dates": "Jan 2025 - April 2025", "points": ["Designed e-guidebooks focusing on structuring visuals and organizing contents.", "Enhanced the user interface and experience for both print and digital formats."]}
+    ],
+    "certifications": [
+      {"title": "Project Management Foundations", "issuer": "Project Management Institute (via LinkedIn Learning)", "date": "Oct 2025"},
+      {"title": "Project Management - Foundation", "issuer": "Alison", "date": "Sep 2025"}
+    ],
+    "skills": {
+      "technical": {
+        "Project Management Tools": ["Trello", "ClickUp", "Notion", "TeamGantt"],
+        "Programming": ["Python", "JavaScript", "Java", "SQL"],
+        "Web Development": ["HTML", "CSS", "Bootstrap", "Laravel"],
+        "Databases": ["MySQL"],
+        "Tools": ["Git", "Visual Studio Code", "XAMPP"],
+        "Operating Systems": ["Windows"]
+      },
+      "soft": ["Leadership", "Communication", "Teamwork", "Time Management", "Problem-solving", "Analytical Thinking", "Detail Orientation"],
+      "note": "CV typo 'Anlaytical Thinking' corrected to 'Analytical Thinking'."
+    },
+    "beyond_work": "TODO",
+    "testimonials": [],
+    "team": [],
+    "faq": []
+  },
+  "assets": [
+    {"path": "inputs/IMG_8603.jpg", "use": "hero", "notes": "Portrait 1207x1748. Mirror selfie in a pink/lilac room (pink walls, lavender light, plush toys), red tie-front top, lilac phone case, pearl bracelet. Fits the pink palette; best hero/main portrait. Phone partly covers frame right; crop from top, keep face in upper third."},
+    {"path": "inputs/IMG_6991.jpeg", "use": "gallery", "notes": "Landscape 2576x1932. Close-up low-angle playful selfie, pouting, loose dark hair, white walls with green/wardrobe/clothes background. Casual and playful; suits About or Beyond Work as a small, tightly cropped accent (crop out cluttered left background). Client should confirm it is OK to publish."}
+  ],
+  "features": {"contact_form": false, "blog": false, "booking": false, "gallery": false, "whatsapp": false},
+  "contact_links": {"mailto": "mailto:barbie.shah003@gmail.com", "tel": "tel:+9779864656512", "linkedin": "https://www.linkedin.com/in/barbieshah"},
+  "needs_db": false,
+  "todos": [
+    "tagline (client to supply or approve; not in CV)",
+    "personal interests / hobbies for About and Beyond Work (not in CV)",
+    "project links, screenshots and GitHub/demo URLs (not in CV)",
+    "GitHub profile URL",
+    "Instagram or other social links",
+    "confirm phone may be published, and +977 country code for tel link",
+    "confirm playful selfie IMG_6991 is OK to publish",
+    "logo/brand colors (inputs/brand folder is empty; palette comes from client brief only)",
+    "CV/resume PDF download: confirm whether to offer it"
+  ]
+}

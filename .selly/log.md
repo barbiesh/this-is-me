@@ -1,0 +1,2 @@
+- step 0: prepared inputs (2026-11-26T11:58:59Z)
+- steps 4-9: built, checked (lint OK, eslint OK, build OK), preview published as artifact

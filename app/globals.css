@@ -1,26 +1,222 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Colour — the only raw hex values in the project */
+  --color-ivory: #fbf6f1;
+  --color-cream: #fffdf9;
+  --color-baby: #f7dce3;
+  --color-blush: #efc1cd;
+  --color-rose: #a8445f;
+  --color-rose-deep: #8a3049;
+  --color-ink: #2b2427;
+  --color-muted: #6e6064;
+  --color-line: #e8dcd9;
+  --color-mist: #d9c9cd;
+
+  /* Type */
+  --font-heading: var(--font-bodoni), "Didot", "Times New Roman", serif;
+  --font-body: var(--font-manrope), system-ui, sans-serif;
+
+  --text-label: 0.75rem;
+  --text-label--letter-spacing: 0.18em;
+  --text-display: clamp(5rem, 21vw, 11.5rem);
+  --text-display--line-height: 0.86;
+  --text-h1: clamp(3.25rem, 8vw, 6rem);
+  --text-h1--line-height: 0.95;
+  --text-h2: clamp(2.5rem, 5.5vw, 4.25rem);
+  --text-h2--line-height: 1;
+  --text-h3: clamp(1.625rem, 2.6vw, 2rem);
+  --text-h3--line-height: 1.15;
+  --text-lede: clamp(1.25rem, 2vw, 1.5rem);
+  --text-lede--line-height: 1.5;
+
+  /* Shape */
+  --radius-arch: 999px 999px 0 0;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-hover: 250ms;
+
+  --spacing-section: clamp(5.5rem, 12vw, 11rem);
+  --container-site: 82.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    -webkit-text-size-adjust: 100%;
   }
+  body {
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    background: var(--color-ivory);
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--color-blush);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-rose);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Paper grain over everything, very quiet */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@layer components {
+/* Reflection of the hero name */
+.reflection {
+  transform: scaleY(-1);
+  -webkit-mask-image: linear-gradient(to top, rgb(0 0 0 / 0.55), transparent 70%);
+  mask-image: linear-gradient(to top, rgb(0 0 0 / 0.55), transparent 70%);
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  letter-spacing: var(--text-label--letter-spacing);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Arch frame — the "mirror" */
+.arch {
+  border-radius: var(--radius-arch);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Underline that draws in */
+.draw-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--duration-hover) var(--ease-silk);
+}
+.draw-link:hover,
+.draw-link:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* Pill button that fills from the bottom */
+.pill-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  isolation: isolate;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: color 300ms var(--ease-silk), border-color 300ms var(--ease-silk);
+}
+.pill-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-rose);
+  border-radius: inherit;
+  transform: translateY(101%);
+  transition: transform 400ms var(--ease-silk);
+}
+.pill-btn:hover,
+.pill-btn:focus-visible {
+  color: var(--color-cream);
+  border-color: var(--color-rose);
+}
+.pill-btn:hover::before,
+.pill-btn:focus-visible::before {
+  transform: translateY(0);
+}
+.pill-btn .arrow {
+  transition: transform 300ms var(--ease-silk);
+}
+.pill-btn:hover .arrow {
+  transform: translateX(4px) rotate(-45deg);
+}
+
+}
+
+/* Marquee */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.float-y {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+@keyframes cue {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.scroll-cue-line {
+  animation: cue 2.4s var(--ease-silk) infinite;
+}
+
+/* Motion pre-states: only applied while JS motion is active */
+.motion [data-reveal="fade"],
+.motion [data-reveal="up"] { opacity: 0; }
+.motion [data-reveal="arch"] { clip-path: inset(100% 0 0 0); }
+.motion .intro-curtain { display: flex; }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Custom cursor only for fine pointers */
+@media (hover: hover) and (pointer: fine) {
+  .has-cursor, .has-cursor a, .has-cursor button { cursor: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .spin-slow, .float-y, .scroll-cue-line { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
